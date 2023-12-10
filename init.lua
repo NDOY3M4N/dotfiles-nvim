@@ -41,6 +41,10 @@ require('lazy').setup("plugins")
 -- See `:help vim.o`
 require("options")
 
+-- TODO: move this to the plugins file
+-- [[ Keymaps for fugitive ]]
+vim.keymap.set('n', '<leader>gg', '<CMD>Git<CR>', { desc = "Fugitive stash" })
+
 -- [[ Autocommands ]]
 require("autocmds")
 

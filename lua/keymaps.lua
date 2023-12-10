@@ -13,8 +13,8 @@ keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Go to beginning and end of a line
-keymap('i', '<C-b>', "<Esc>^i", { desc = 'Beginning of line' })
-keymap('i', '<C-e>', "<End>", { desc = 'End of line' })
+keymap('i', '<C-b>', '<Esc>^i', { desc = 'Beginning of line' })
+keymap('i', '<C-e>', '<End>', { desc = 'End of line' })
 
 -- Navigate within insert mode
 keymap('i', '<C-h>', '<Left>', { desc = 'Move left' })
@@ -38,7 +38,7 @@ keymap('n', '<C-s>', '<CMD>w<CR>', { desc = 'Save file' })
 keymap('n', '<C-c>', '<CMD>%y+<CR>', { desc = 'Copy whole file' })
 
 -- Terminal stuff
-keymap('t', '<C-x>', vim.api.nvim_replace_termcodes("C-\\><C-N>", true, true, true), { desc = 'Escape terminal mode' })
+keymap('t', '<C-x>', vim.api.nvim_replace_termcodes('C-\\><C-N>', true, true, true), { desc = 'Escape terminal mode' })
 
 -- Diagnostic keymaps
 keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })

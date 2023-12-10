@@ -1,11 +1,11 @@
 local M = {}
 
 M.config = function()
-  require("catppuccin").setup({
+  require('catppuccin').setup({
     no_italic = true,
   })
 
-  vim.cmd.colorscheme("catppuccin")
+  vim.cmd.colorscheme('catppuccin')
 end
 
 return M

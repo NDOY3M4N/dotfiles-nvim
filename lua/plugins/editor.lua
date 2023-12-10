@@ -4,35 +4,46 @@ return {
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
+  'tpope/vim-sleuth',  -- TODO: Do I need this one?
   -- Git related plugins
   'tpope/vim-rhubarb', -- TODO: Do I need this one?
   {
     'tpope/vim-fugitive',
-    keys = require("config.fugitive").keys,
+    keys = require('config.fugitive').keys,
   },
   -- Manipulate brackets with ease
   {
-    "kylechui/nvim-surround",
-    version = "*",
-    event = "VeryLazy",
+    'kylechui/nvim-surround',
+    version = '*',
+    event = 'VeryLazy',
     opts = {},
   },
 
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
-    opts = require("config.gitsigns").opts,
+    opts = require('config.gitsigns').opts,
   },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
-    dependencies = require("config.telescope").dependencies,
-    init = require("config.telescope").keys,
-    config = require("config.telescope").config,
-    opts = require("config.telescope").opts
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        -- NOTE: If you are having trouble with this installation,
+        --       refer to the README for telescope-fzf-native for more instructions.
+        build = 'make',
+        cond = function()
+          return vim.fn.executable('make') == 1
+        end,
+      },
+    },
+    init = require('config.telescope').keys,
+    config = require('config.telescope').config,
+    opts = require('config.telescope').opts,
   },
 
   {
@@ -44,8 +55,8 @@ return {
     build = ':TSUpdate',
     -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
     config = vim.defer_fn(function()
-      local opts = require("config.treesitter").opts
+      local opts = require('config.treesitter').opts
       require('nvim-treesitter.configs').setup(opts)
-    end, 0)
+    end, 0),
   },
 }

@@ -4,8 +4,8 @@ local function augroup(name)
 end
 
 -- dont list quickfix buffers
-autocmd("FileType", {
-  pattern = "qf",
+autocmd('FileType', {
+  pattern = 'qf',
   callback = function()
     vim.opt_local.buflisted = false
   end,
@@ -22,20 +22,20 @@ autocmd('TextYankPost', {
 })
 
 -- Close some filetypes with <q>
-autocmd("Filetype", {
-  group = augroup("close_with_q"),
+autocmd('Filetype', {
+  group = augroup('close_with_q'),
   -- NOTE:`:set ft?` to get the filetype of the current buffer
   pattern = {
-    "PlenaryTestPopup",
-    "fugitive",
-    "help",
-    "lspinfo",
-    "man",
-    "checkhealth",
-    "qf"
+    'PlenaryTestPopup',
+    'fugitive',
+    'help',
+    'lspinfo',
+    'man',
+    'checkhealth',
+    'qf',
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buffer, silent = true })
-  end
+    vim.keymap.set('n', 'q', '<CMD>close<CR>', { buffer = event.buffer, silent = true })
+  end,
 })

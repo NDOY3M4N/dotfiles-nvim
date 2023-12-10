@@ -3,7 +3,7 @@ local opt = vim.opt
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 
-opt.clipboard = "unnamedplus"
+opt.clipboard = 'unnamedplus'
 opt.cursorline = true
 
 -- Indenting
@@ -13,10 +13,10 @@ opt.smartindent = true
 opt.tabstop = 2
 opt.softtabstop = 2
 
-opt.fillchars = { eob = " " }
+opt.fillchars = { eob = ' ' }
 opt.ignorecase = true
 opt.smartcase = true
-opt.mouse = "a"
+opt.mouse = 'a'
 
 -- Numbers
 opt.number = true
@@ -26,7 +26,7 @@ opt.relativenumber = true
 -- disable nvim intro
 -- opt.shortmess:append "sI"
 
-opt.signcolumn = "yes"
+opt.signcolumn = 'yes'
 opt.splitbelow = true
 opt.splitright = true
 opt.termguicolors = true
@@ -38,11 +38,11 @@ opt.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append('<>[]hl')
 
 -- disable some default providers
-for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
+for _, provider in ipairs({ 'node', 'perl', 'python3', 'ruby' }) do
+  vim.g['loaded_' .. provider .. '_provider'] = 0
 end
 
 -- add binaries installed by mason.nvim to path

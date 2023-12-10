@@ -1,6 +1,5 @@
+-- NOTE: This is where your plugins related to LSP can be installed.
 return {
-  -- NOTE: This is where your plugins related to LSP can be installed.
-  --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -16,6 +15,7 @@ return {
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
+    config = require('config.lsp').config,
   },
 
   {
@@ -31,15 +31,14 @@ return {
       'hrsh7th/cmp-path',
 
       -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
+      -- 'rafamadriz/friendly-snippets',
     },
+    config = require('config.nvim-cmp').config,
   },
 
   -- Null-ls
   {
     'nvimtools/none-ls.nvim',
-    opts = function()
-      return require("config.null-ls")
-    end
-  }
+    config = require('config.null-ls').config,
+  },
 }

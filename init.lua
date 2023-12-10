@@ -41,18 +41,11 @@ require('lazy').setup("plugins")
 -- See `:help vim.o`
 require("options")
 
--- TODO: move this to the plugins file
--- [[ Keymaps for fugitive ]]
-vim.keymap.set('n', '<leader>gg', '<CMD>Git<CR>', { desc = "Fugitive stash" })
-
 -- [[ Autocommands ]]
 require("autocmds")
 
 -- [[ Basic Keymaps ]]
 require("keymaps")
-
--- [[ Plugin configurations ]]
-require("config")
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

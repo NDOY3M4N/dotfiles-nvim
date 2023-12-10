@@ -6,7 +6,17 @@ return {
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  { 'folke/which-key.nvim', opts = {} },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require('nvim-surround').setup()
+    end
+  },
+
+  { 'folke/which-key.nvim',  opts = {} },
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -81,9 +91,6 @@ return {
       end,
     },
   },
-  -- TODO: add folke/todo plugin
-
-  -- TODO: change this plugin to the one I use
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 

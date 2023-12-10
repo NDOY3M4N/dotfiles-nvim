@@ -80,11 +80,7 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-  gopls = {
-    gopls = {
-      gofumpt = true,
-    },
-  },
+  gopls = {},
 
   lua_ls = {
     Lua = {

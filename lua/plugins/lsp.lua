@@ -34,4 +34,12 @@ return {
       'rafamadriz/friendly-snippets',
     },
   },
+
+  -- Null-ls
+  {
+    'nvimtools/none-ls.nvim',
+    opts = function()
+      return require("config.null-ls")
+    end
+  }
 }

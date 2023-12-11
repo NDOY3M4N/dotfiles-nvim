@@ -29,7 +29,7 @@ return {
     'folke/todo-comments.nvim',
     cmd = { 'TodoTelescope' },
     event = { 'BufReadPost', 'BufNewFile' },
-    opts = {},
+    opts = require('config.todo-comments').opts,
     keys = require('config.todo-comments').keys,
   },
 

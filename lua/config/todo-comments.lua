@@ -17,8 +17,14 @@ M.keys = {
     end,
     desc = 'Previous todo comment',
   },
-  { '<leader>sT', '<cmd>TodoTelescope<cr>',                        desc = 'Todo' },
+  { '<leader>sT', '<cmd>TodoTelescope<cr>', desc = 'Todo' },
   { '<leader>st', '<cmd>TodoTelescope keywords=TODO,FIX,PERF<cr>', desc = 'Todo/Fix/Perf' },
+}
+
+M.opts = {
+  keywords = {
+    TEST = { icon = '󰙨 ' },
+  },
 }
 
 return M

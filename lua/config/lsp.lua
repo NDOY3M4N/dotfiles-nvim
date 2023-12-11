@@ -46,7 +46,7 @@ end
 
 M.config = function()
   -- document existing key chains
-  require('which-key').register {
+  require('which-key').register({
     ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
     ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
     ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
@@ -55,7 +55,7 @@ M.config = function()
     ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
     ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
     ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-  }
+  })
 
   -- register which-key VISUAL mode
   -- required for visual <leader>hs (hunk stage) to work
@@ -87,8 +87,14 @@ M.config = function()
     gopls = {},
     lua_ls = {
       Lua = {
-        workspace = { checkThirdParty = false },
         telemetry = { enable = false },
+        workspace = {
+          checkThirdParty = false,
+          library = {
+            [vim.fn.expand('$vimruntime/lua')] = true,
+            [vim.fn.expand('$vimruntime/lua/vim/lsp')] = true,
+          },
+        },
         -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
         -- diagnostics = { disable = { 'missing-fields' } },
       },
@@ -96,7 +102,7 @@ M.config = function()
   }
 
   -- Setup neovim lua configuration
-  -- require('neodev').setup()
+  require('neodev').setup()
 
   -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -105,20 +111,20 @@ M.config = function()
   -- Ensure the servers above are installed
   local mason_lspconfig = require('mason-lspconfig')
 
-  mason_lspconfig.setup {
+  mason_lspconfig.setup({
     ensure_installed = vim.tbl_keys(servers),
-  }
+  })
 
-  mason_lspconfig.setup_handlers {
+  mason_lspconfig.setup_handlers({
     function(server_name)
-      require('lspconfig')[server_name].setup {
+      require('lspconfig')[server_name].setup({
         capabilities = capabilities,
         on_attach = on_attach,
         settings = servers[server_name],
         filetypes = (servers[server_name] or {}).filetypes,
-      }
+      })
     end,
-  }
+  })
 end
 
 return M

@@ -18,6 +18,12 @@ return {
     event = 'VeryLazy',
     opts = {},
   },
+  -- autopairing of (){}[] etc
+  {
+    'windwp/nvim-autopairs',
+    opts = require('config.nvim-autopairs').opts,
+    config = require("config.nvim-autopairs").config,
+  },
   -- TODO comments
   {
     'folke/todo-comments.nvim',

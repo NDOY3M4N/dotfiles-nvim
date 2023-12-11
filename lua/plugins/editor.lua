@@ -1,10 +1,10 @@
 return {
   -- NOTE: opts = {} is equivalent to require(...).setup()
-  { 'folke/which-key.nvim',  opts = {} },
+  { 'folke/which-key.nvim', opts = {} },
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
   -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',  -- TODO: Do I need this one?
+  'tpope/vim-sleuth', -- TODO: Do I need this one?
   -- Git related plugins
   'tpope/vim-rhubarb', -- TODO: Do I need this one?
   {
@@ -17,6 +17,14 @@ return {
     version = '*',
     event = 'VeryLazy',
     opts = {},
+  },
+  -- TODO comments
+  {
+    'folke/todo-comments.nvim',
+    cmd = { 'TodoTelescope' },
+    event = { 'BufReadPost', 'BufNewFile' },
+    opts = {},
+    keys = require('config.todo-comments').keys,
   },
 
   {
@@ -41,13 +49,13 @@ return {
         end,
       },
     },
-    init = require('config.telescope').keys,
+    init = require('config.telescope').init,
     config = require('config.telescope').config,
     opts = require('config.telescope').opts,
   },
 
+  -- Highlight, edit, and navigate code
   {
-    -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',

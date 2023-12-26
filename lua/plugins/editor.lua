@@ -11,6 +11,12 @@ return {
     'tpope/vim-fugitive',
     keys = require('config.fugitive').keys,
   },
+  -- Harpoon2
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    config = require('config.harpoon').config,
+  },
   -- Manipulate brackets with ease
   {
     'kylechui/nvim-surround',
@@ -22,7 +28,7 @@ return {
   {
     'windwp/nvim-autopairs',
     opts = require('config.nvim-autopairs').opts,
-    config = require("config.nvim-autopairs").config,
+    config = require('config.nvim-autopairs').config,
   },
   -- TODO comments
   {

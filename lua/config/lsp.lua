@@ -81,9 +81,10 @@ M.config = function()
     -- clangd = {},
     -- pyright = {},
     -- rust_analyzer = {},
-    -- tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
+    tsserver = {},
+    svelte = {},
     gopls = {},
     lua_ls = {
       Lua = {

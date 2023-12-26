@@ -32,6 +32,7 @@ autocmd('Filetype', {
     'lspinfo',
     'man',
     'checkhealth',
+    'netrw',
     'qf',
   },
   callback = function(event)

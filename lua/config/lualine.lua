@@ -25,12 +25,18 @@ end
 
 M.opts = {
   options = {
-    icons_enabled = false,
-    component_separators = '|',
+    icons_enabled = true,
+    component_separators = '',
     section_separators = '',
   },
   sections = {
-    lualine_x = { get_lsp_info, 'filetype' },
+    lualine_a = { 'branch' },
+    lualine_b = { 'diff', 'diagnostics' },
+    lualine_c = {
+      { 'filetype', icon_only = true },
+      'filename',
+    },
+    lualine_x = { get_lsp_info },
   },
   extensions = { 'fugitive' },
 }

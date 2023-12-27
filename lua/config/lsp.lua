@@ -16,6 +16,16 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
+  -- Format buffer through LSP
+  nmap('<leader>fm', function()
+    vim.lsp.buf.format({ async = true })
+  end, '[F]ormat current buffer')
+
+  -- Toggle inlay hints
+  nmap('<leader>hh', function()
+    vim.lsp.inlay_hint(0, nil)
+  end, 'Toggle Inlay [H]ints')
+
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
@@ -39,9 +49,9 @@ local on_attach = function(_, bufnr)
   end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format()
-  end, { desc = 'Format current buffer with LSP' })
+  -- vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+  --   vim.lsp.buf.format()
+  -- end, { desc = 'Format current buffer with LSP' })
 end
 
 M.config = function()
@@ -83,7 +93,30 @@ M.config = function()
     -- rust_analyzer = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
-    tsserver = {},
+    tsserver = {
+      javascript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = 'all',
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = true,
+        },
+      },
+      typescript = {
+        inlayHints = {
+          includeInlayEnumMemberValueHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayParameterNameHints = 'all',
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = true,
+        },
+      },
+    },
     svelte = {},
     gopls = {},
     lua_ls = {
@@ -96,6 +129,7 @@ M.config = function()
             [vim.fn.expand('$vimruntime/lua/vim/lsp')] = true,
           },
         },
+        hint = { enable = true },
         -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
         -- diagnostics = { disable = { 'missing-fields' } },
       },

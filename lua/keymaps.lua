@@ -9,8 +9,8 @@ keymap('i', 'jk', '<Esc>')
 keymap('i', 'kj', '<Esc>')
 
 -- Navigate between buffers
-keymap('n', '[b', '<CMD>bprev<CR>', { desc = 'Go to the previous buffer'})
-keymap('n', ']b', '<CMD>bnext<CR>', { desc = 'Go to the next buffer'})
+keymap('n', '[b', '<CMD>bprev<CR>', { desc = 'Go to the previous buffer' })
+keymap('n', ']b', '<CMD>bnext<CR>', { desc = 'Go to the next buffer' })
 
 -- Remap for dealing with word wrap
 keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -49,8 +49,3 @@ keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic 
 keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
 keymap('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
-
--- Format buffer through LSP
-keymap('n', '<leader>fm', function()
-  vim.lsp.buf.format({ async = true })
-end, { desc = 'LSP formatting' })

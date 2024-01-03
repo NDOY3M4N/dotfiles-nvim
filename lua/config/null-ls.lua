@@ -2,16 +2,19 @@ local M = {}
 
 M.config = function()
   local null_ls = require('null-ls')
+  local formatting = null_ls.builtins.formatting
   null_ls.setup({
     sources = {
+      -- JS/TS Prettier
+      formatting.prettierd.with({ extra_filetypes = { "svelte" } }),
       -- Lua
-      null_ls.builtins.formatting.stylua,
+      formatting.stylua,
       -- Golang
-      null_ls.builtins.formatting.gofumpt.with({
+      formatting.gofumpt.with({
         extra_args = { '-extra' },
       }),
-      null_ls.builtins.formatting.goimports_reviser,
-      null_ls.builtins.formatting.golines,
+      formatting.goimports_reviser,
+      formatting.golines,
     },
   })
 end

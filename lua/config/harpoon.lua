@@ -2,8 +2,11 @@ local M = {}
 
 M.config = function()
   local harpoon = require('harpoon')
-
   harpoon:setup()
+
+  vim.keymap.set('n', '<leader>mr', function()
+    harpoon.list():remove()
+  end)
 
   vim.keymap.set('n', '<leader>ma', function()
     harpoon:list():append()

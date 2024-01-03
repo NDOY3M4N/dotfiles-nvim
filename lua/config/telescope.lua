@@ -66,6 +66,10 @@ M.init = function()
   vim.keymap.set('n', '<leader>fG', ':LiveGrepGitRoot<cr>', { desc = '[F]ind by [G]rep on Git Root' })
   vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
   vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[F]ind [R]esume' })
+
+  vim.keymap.set('n', '<leader>th', function()
+    require('telescope.builtin').colorscheme({ enable_preview = true })
+  end, { desc = '[F]ind [R]esume' })
 end
 
 M.opts = {

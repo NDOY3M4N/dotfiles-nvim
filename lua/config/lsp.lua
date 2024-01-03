@@ -22,9 +22,9 @@ local on_attach = function(_, bufnr)
   end, '[F]ormat current buffer')
 
   -- Toggle inlay hints
-  nmap('<leader>hh', function()
+  nmap('<leader>ih', function()
     vim.lsp.inlay_hint(0, nil)
-  end, 'Toggle Inlay [H]ints')
+  end, 'Toggle [I]nlay [H]ints')
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
@@ -119,6 +119,7 @@ M.config = function()
     },
     svelte = {},
     gopls = {},
+    eslint = {},
     lua_ls = {
       Lua = {
         telemetry = { enable = false },

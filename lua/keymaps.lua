@@ -4,6 +4,14 @@ local keymap = vim.keymap.set
 
 keymap({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- Stay in indent mode
+keymap('v', '>', '>gv', { desc = 'Stay in indent mode' })
+keymap('v', '<', '<gv', { desc = 'Stay in indent mode' })
+
+-- Move lines
+keymap('v', 'J', ":m '>+1<CR>gv=gv")
+keymap('v', 'K', ":m '<-2<CR>gv=gv")
+
 -- Enter normal mode with jk, kj
 keymap('i', 'jk', '<Esc>')
 keymap('i', 'kj', '<Esc>')
@@ -21,16 +29,16 @@ keymap('i', '<C-b>', '<Esc>^i', { desc = 'Beginning of line' })
 keymap('i', '<C-e>', '<End>', { desc = 'End of line' })
 
 -- Navigate within insert mode
-keymap('i', '<C-h>', '<Left>', { desc = 'Move left' })
-keymap('i', '<C-l>', '<Right>', { desc = 'Move right' })
-keymap('i', '<C-j>', '<Down>', { desc = 'Move down' })
-keymap('i', '<C-k>', '<Up>', { desc = 'Move up' })
+keymap('i', '<C-h>', '<Left>', { desc = 'Move cursor left' })
+keymap('i', '<C-l>', '<Right>', { desc = 'Move cursor right' })
+keymap('i', '<C-j>', '<Down>', { desc = 'Move cursor down' })
+keymap('i', '<C-k>', '<Up>', { desc = 'Move cursor up' })
 
 -- Switch between windows
 keymap('n', '<C-h>', '<C-w>h', { desc = 'Window left' })
 keymap('n', '<C-l>', '<C-w>l', { desc = 'Window right' })
 keymap('n', '<C-j>', '<C-w>j', { desc = 'Window down' })
-keymap('n', '<C-k>', '<C-w>k', { desc = 'Window up' })
+keymap('n', '<C-i>', '<C-w>k', { desc = 'Window up' })
 
 -- Clear highlights
 keymap('n', '<Esc>', '<CMD>noh<CR>', { desc = 'Clear highlights' })

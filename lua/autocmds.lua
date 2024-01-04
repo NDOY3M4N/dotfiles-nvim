@@ -40,3 +40,13 @@ autocmd('Filetype', {
     vim.keymap.set('n', 'q', '<CMD>close<CR>', { buffer = event.buffer, silent = true })
   end,
 })
+
+-- Wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("Filetype", {
+  group = augroup("wrap_spell"),
+  pattern = { "gitcommit", "markdown" },
+  callback = function ()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end
+})

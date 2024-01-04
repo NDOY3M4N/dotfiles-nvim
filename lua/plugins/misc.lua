@@ -1,7 +1,12 @@
 ---@type LazySpec
 return {
-  { 'numToStr/Comment.nvim',  opts = {} },
-  { 'kylechui/nvim-surround', version = '*', event = 'VeryLazy', opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'kylechui/nvim-surround',
+    version = '*',
+    -- event = 'VeryLazy',
+    opts = {},
+  },
   {
     'folke/which-key.nvim',
     opts = {},
@@ -28,9 +33,9 @@ return {
   },
 
   -- Git related plugins
-  { 'tpope/vim-rhubarb', enabled = false },
+  { 'tpope/vim-rhubarb',     enabled = false },
   -- Detect tabstop and shiftwidth automatically
-  { 'tpope/vim-sleuth',  enabled = false },
+  { 'tpope/vim-sleuth',      enabled = false },
   -- autopairing of (){}[] etc
   {
     'windwp/nvim-autopairs',

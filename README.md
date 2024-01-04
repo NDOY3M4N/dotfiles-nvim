@@ -4,6 +4,13 @@
 
 This config uses [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) as a starting point.
 
-## Features
+## 💉 Requirements
+
+- Neovim v0.9.0+
+- A nerd font (I used JetBrains Mono btw)
+- Git
+
+
+## ✨ Features
 
 WIP

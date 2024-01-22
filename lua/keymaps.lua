@@ -2,6 +2,9 @@
 -- See `:help vim.keymap.set()`
 local keymap = vim.keymap.set
 
+-- NOTE: I had to change the keymaps to <Alt-v>
+-- because my <Ctrl-v> is highjacked by the Windows Terminal for pasting content.
+keymap('n', '<A-v>', '<C-v>', { desc = 'Enter blockwise Visual mode' })
 keymap({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Stay in indent mode

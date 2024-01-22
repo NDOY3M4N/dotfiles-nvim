@@ -58,6 +58,7 @@ return {
     -- Automatically install LSPs to stdpath for neovim
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
+    'jay-babu/mason-null-ls.nvim',
     'folke/which-key.nvim',
 
     -- Useful status updates for LSP
@@ -68,12 +69,30 @@ return {
   },
   config = function()
     require('mason').setup()
-    require('mason-lspconfig').setup()
+    require('mason-lspconfig').setup({
+      ensure_installed = {
+        'lua_ls',
+        'tsserver',
+        'svelte',
+        'eslint',
+        'gopls',
+      },
+    })
+    require('mason-null-ls').setup({
+      automatic_installation = false,
+      ensure_installed = {
+        'stylua',
+        'prettierd',
+        'gofumpt',
+        'golines',
+        'goimports-reviser',
+      },
+    })
 
     local servers = {
       -- pyright = {},
       -- rust_analyzer = {},
-      -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+      -- html = { filetypes = { 'html', 'twig', 'hbs' } },
 
       tsserver = {
         javascript = {

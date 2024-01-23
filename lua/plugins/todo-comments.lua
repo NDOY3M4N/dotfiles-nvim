@@ -5,7 +5,9 @@ return {
   event = { 'BufReadPost', 'BufNewFile' },
   opts = {
     keywords = {
-      TEST = { icon = '󰙨 ' },
+      TODO = { icon = ' ', color = 'info' },
+      FIX = { icon = '󰨰 ', color = 'error' },
+      TEST = { icon = '󰙨 ', color = 'test' },
     },
   },
   keys = {

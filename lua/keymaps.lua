@@ -2,11 +2,10 @@
 -- See `:help vim.keymap.set()`
 local keymap = vim.keymap.set
 
--- NOTE: I had to change the keymaps to <Alt-v>
--- because my <Ctrl-v> is highjacked by the Windows Terminal for pasting content.
-keymap('n', '<A-v>', '<C-v>', { desc = 'Enter blockwise Visual mode' })
 keymap({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- Open netrw
+keymap('n', '<a-f>', '<CMD>Ex<CR>', { desc = 'Open netrw in directory of currently edited file' })
 -- Stay in indent mode
 keymap('v', '>', '>gv', { desc = 'Stay in indent mode' })
 keymap('v', '<', '<gv', { desc = 'Stay in indent mode' })

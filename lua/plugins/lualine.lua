@@ -16,7 +16,7 @@ return {
         lualine_c = {
           {
             'filetype',
-            colored = false,
+            -- colored = false,
             icon_only = true,
             padding = { left = 1, right = 0 },
             color = { bg = palette.mantle, fg = palette.text },

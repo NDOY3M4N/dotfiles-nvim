@@ -42,11 +42,18 @@ autocmd('Filetype', {
 })
 
 -- Wrap and check for spell in text filetypes
-vim.api.nvim_create_autocmd("Filetype", {
-  group = augroup("wrap_spell"),
-  pattern = { "gitcommit", "markdown" },
-  callback = function ()
+vim.api.nvim_create_autocmd('Filetype', {
+  group = augroup('wrap_spell'),
+  pattern = { 'gitcommit', 'markdown' },
+  callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
-  end
+  end,
+})
+
+-- Change NeogitCommitMessage
+vim.api.nvim_create_autocmd('Filetype', {
+  group = augroup('change_neogit_commit_message'),
+  pattern = { 'NeogitCommitMessage' },
+  command = 'silent! set filetype=gitcommit',
 })

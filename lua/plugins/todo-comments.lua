@@ -3,13 +3,7 @@ return {
   'folke/todo-comments.nvim',
   cmd = { 'TodoTelescope' },
   event = { 'BufReadPost', 'BufNewFile' },
-  opts = {
-    keywords = {
-      TODO = { icon = ' ', color = 'info' },
-      FIX = { icon = '󰨰 ', color = 'error' },
-      TEST = { icon = '󰙨 ', color = 'test' },
-    },
-  },
+  opts = { signs = false },
   keys = {
     {
       ']t',
